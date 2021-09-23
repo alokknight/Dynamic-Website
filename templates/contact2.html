@@ -1,0 +1,87 @@
+
+{% extends 'base.html'%}
+{% block title %} CONTACT {% endblock title %}
+{% load static %}
+{% block body %}
+
+<div class="Container-fluid px-0 mb-3">
+     <img src="{% static 'img/contact1.jpg' %}" class="d-block w-100 " alt="...">
+</div>
+
+
+<div class="col-md-12 col-lg-6 col-xl-5 mx-auto mb-4">
+
+                <section class="form-gradient">
+
+                    <div class="card">
+
+                        <!--Header-->
+                        <div class="header pt-3 peach-gradient">
+
+                            <div class="row d-flex justify-content-center">
+                                <h3 class="white-text mb-3 pt-3 font-weight-bold">Contact Us</h3>
+                            </div>
+
+                            <div class="row mt-2 mb-3 d-flex justify-content-center">
+                                <!--Facebook-->
+                                <a class="icons-sm fb-ic mx-2"><i class="fab fa-facebook-f white-text fa-lg"> </i></a>
+                                <!--Twitter-->
+                                <a class="icons-sm tw-ic mx-2"><i class="fab fa-twitter white-text fa-lg"> </i></a>
+                                <!--Google +-->
+                                <a class="icons-sm gplus-ic mx-2"><i class="fab fa-google-plus-g white-text fa-lg"> </i></a>
+                            </div>
+
+                        </div>
+                        <!--Header-->
+
+                        <div class="card-body mx-4 mt-4">
+
+                            <!--Body-->
+                            <div class="md-form">
+                                <label for="Form-email3">Your name</label>
+                                <input type="text" id="Form-name3" class="form-control">
+                            </div>
+
+                            <div class="md-form">
+                                <label for="Form-pass3">Your mail</label>
+                                <input type="email" id="Form-mail3" class="form-control">
+                            </div>
+
+                            <div class="md-form">
+                                <label for="Form-pass3">Mobile No.</label>
+                                <input type="text" id="Form-mail3" class="form-control">
+                            </div>
+
+
+                            <div class="md-form">
+                                <label for="message5" class="">Your message</label>
+                                <textarea type="text" id="message5" name="message5" rows="2" class="form-control md-textarea"></textarea>
+                                <div class="form-group">
+                                </div>
+                            </div>
+
+                            <!--Grid row-->
+                            <div class="row d-flex mb-4">
+
+                                <!--Grid column-->
+                                <div class="col-md-1 col-md-5 d-flex  ml-auto">
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-grey btn-rounded z-depth-1a waves-effect waves-light">Send</button>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+
+
+                            </div>
+                            <!--Grid row-->
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+{% endblock body %}

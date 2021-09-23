@@ -1,0 +1,25 @@
+{% extends 'baseuser.html'%}
+
+{% block contant %}
+<style>
+body {
+  background-image: url('../static/img/vector1.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+<h1>Hello {{name}}!!!!!!! < {{name2}}</h1>
+
+<form action="add/", method="POST" >
+   {% csrf_token %}
+   <br><br><br><br>
+    enter 1st number:<input type="text" name="num1"><br>
+    <br>
+    enter 2nd number:<input type="text" name="num2"><br><br>
+    OR<a> just fill 0 if don't use this field.</a><br><br>
+    just enter a expression:<input type="text" name="num3"><br><br>
+    <input type="submit">
+
+</form>
+{% endblock %}

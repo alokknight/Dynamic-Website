@@ -1,0 +1,55 @@
+{% extends 'base.html'%}
+{% block title %}ABOUT{% endblock %}
+
+{% block body %}
+
+
+<h3>Projects</h3>
+<ul>
+    <strong>Dynamic Website Coderpapa.org (Dec 2020 - PRESENT)</strong><br>
+    •	Tech Used: HTML, CSS, JS, Bootstrap, DJANGO, MongoDB, Python, Git.<br>
+    <strong>Car Price Prediction (Apr 2019 - May 2019)</strong><br>
+    •	Provide the predicted price of an old vehicle according to its age & fuel type etc.<br>
+    •	Tech Used: Machine learning, Django, Python,<br>
+    <strong>OpenCV Live Class Attendance, (June 2019- Sep 2019)</strong><br>
+    •	It takes live attendance of students at incoming time and outgoing time in excel sheet.<br>
+    •	Tech Used: Artificial Intelligence, Python, OpenCV,<br>
+    <strong>Hostel Management System (Oct 2018 - Dec 2018)</strong><br>
+    •	Only the admin can save and delete Students details using his password.<br>
+    •	Students can only see the details.<br>
+    •	Tech Used: C++, OPPs.<br>
+
+</ul>
+
+
+
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        {% for project in projects %}
+                    <div class="col">
+                            <div class="card shadow-sm">
+            <!--              <img src="{{request.scheme}}://{{request.META.HTTP_HOST}}/static/img/{{ tut.img }}" class="d-block w-100" alt="">-->
+                            <img src="{{ project.img.url }}" class="d-block w-100" alt="" width="200" height="300">
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>{{project.title}}</strong></p>
+                                        <p class="card-text">{{project.desc}}</p>
+                                        <p class="card-text"><b>Tech Used:</b> {{project.techused}}</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                </div>
+                                            <small class="text-muted">{{project.startingdate}}&nbsp to</small>
+                                            <small class="text-muted">{{project.endingdate}}</small>
+                                            </div>
+                                    </div>
+                            </div>
+                    </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock body %}
+

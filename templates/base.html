@@ -1,0 +1,217 @@
+<!--doctype html-->
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <div style="background-image: url('{{request.scheme}}://{{request.META.HTTP_HOST}}{% static "img" %}/backgroung1.jpg');">
+
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<style>
+body {
+  background-image: url('../static/img/vector1.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+
+
+{% comment %}
+<section class="background-image">
+		<video muted="" autoplay="" loop="" id="bgvid">
+			<source src="https://d1fm8lak0mbplk.cloudfront.net/bg-main-slower.mp4" type="video/mp4">
+		</video>
+</section> {% endcomment %}
+
+{% comment %}
+<style>
+#myVideo {position: fixed;right: 0;bottom: 0;min-width: 100%;min-height: 100%;}
+
+/* Add some content at the bottom of the video/page */
+.content {position: fixed;bottom: 0;background: rgba(0, 0, 0, 0.5);color: #f1f1f1;width: 100%;padding: 20px;}
+
+/* Style the button used to pause/play the video */
+#myBtn { width: 70px; font-size:18px; padding:10px; border:none; background:#000; color:#fff; cursor:pointer;}
+#myBtn:hover { background: #ddd; color: black;}
+</style>
+
+
+
+<script>
+// Get the video
+var video = document.getElementById("myVideo");
+
+// Get the button
+var btn = document.getElementById("myBtn");
+
+// Pause and play the video, and change the button text
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+
+
+<video autoplay muted loop id="myVideo">
+  <source src="./static/img/net.mp4" type="video/mp4">
+</video>
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <h2>ALOK</h2>
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div> {% endcomment %}
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://www.linkedin.com/in/alokknight">ALOK</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/projects/">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorial/">Tutorials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'calculate' %}">calsum</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/blogs/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          blogs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">blog1</a></li>
+            <li><a class="dropdown-item" href="#">blog2</a></li>
+            <li><a class="dropdown-item" href="#">blog3</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Somthing else</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/services/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="/turistingo/">Turistingo</a></li>
+            <li><a class="dropdown-item" href="/services/">Tourism</a></li>
+            <li><a class="dropdown-item" href="#">Wineshop</a></li>
+            <li><a class="dropdown-item" href="#">Hotels</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Somthing else</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">Contact Us</a>
+        </li>
+
+
+
+      </ul>
+      <li><a href="#"><i class="fa fa-search fa-2x"></i></a></li>&nbsp &nbsp
+
+
+       {% if user.is_authenticated %}
+      <p style="color: white ;"> Welcome &nbsp <strong>{{ request.user}} &nbsp &nbsp </strong></p>
+      <button class="btn btn-outline-success" onclick="window.location.href='/account/logout/'" type="login">Logout</button>
+
+      {% else %}
+
+      <button class="btn btn-outline-success" onclick="window.location.href='/account/login/'" type="login">login</button>
+      <button class="btn btn-outline-success" onclick="window.location.href='/account/register/'" type="login">Register</button>
+      {% endif %}
+
+
+      {% comment %} <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form> {% endcomment %}
+
+
+    </div>
+  </div>
+</nav>
+
+{% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ messages.tags }} alert-dismissible fade show my-0" role="alert">
+  <strong>{{ message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+{% endif %}
+
+  {% block body%}
+
+
+  {% endblock body%}
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> {% endcomment %}
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+<hr class="my-4">
+
+    <div class="icon-bar">
+    <ul class="social-network social-circle">
+                    <a target="_blank" href="/"><i class="fa fa-home fa-2x"></i></a>
+                    <a target="_blank" href="mailto:alokpatel885@gmail.com"><i class="fa fa-envelope fa-2x"></i></a>
+                    <a target="_blank" href="#"><i class="fa fa-globe fa-2x"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/aalokknight" class="icoGoogle" title="Instagram"><i class="fa fa-instagram fa-2x"></i></a>
+                    <a target="_blank" href="https://www.github.com/alokknight"><i class="fa fa-github fa-3x"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/alokknight" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin fa-2x"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/aalokknight" class="icoFacebook" title="Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+                    <a target="_blank" href="https://twitter.com/aalokknight" class="icoTwitter" title="Twitter"><i  class="fa fa-twitter fa-2x"></i></a>
+                    <a target="_blank" href="https://www.youtube.com" class="icoRss" title="Youtube"><i class="fa fa-youtube fa-2x"></i></a>
+    </div>
+</ul>
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2021 Copyright:
+      <a href="https://www.coderpapa.org" target="_blank"> coderpapa.org</a>
+    </div>
+    <!--/.Copyright-->
+  </footer>
+
+
+  </html>
