@@ -12,3 +12,9 @@ ENV/
 env.bak/
 venv.bak/
 .settings.py
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
