@@ -25,12 +25,13 @@ SECRET_KEY = 'ccc4%gp_jhy(j*-fhc^t#wvnm04j&@&=(_o4r#a2rbr7%oxdc7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','coderpapa']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',##
     'turistingo',
     'app1',
     'calsum',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',##
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'##
 
 ROOT_URLCONF = 'coderpapa.urls'
 
@@ -97,21 +101,6 @@ DATABASES = {
     }
 }
 
-
-
-# ###
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         "CLIENT": {
-#            "name": 'database',
-#            "host": 'mongodb+srv://coderpapa:coderpapa885@codermongo.bnaw4.mongodb.net/database',
-#            "username": 'coderpapa',
-#            "password": 'coderpapa885',
-#            "authMechanism": "SCRAM-SHA-1",
-#         },
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -166,11 +155,13 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
 
-STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+# STATIC_ROOT=os.path.join(BASE_DIR,'assets')
 
 MEDIA_URL='/media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
