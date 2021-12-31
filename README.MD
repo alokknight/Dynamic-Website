@@ -4,7 +4,7 @@ https://coderpapa.herokuapp.com
 
 - Fork and Clone the repo using
 ```
-$ git clone https://github.com/alokknight/invoice.git
+$ git clone https://github.com/alokknight/Dynamic-Website.git
 ```
 - Setup Virtual environment
 ```
